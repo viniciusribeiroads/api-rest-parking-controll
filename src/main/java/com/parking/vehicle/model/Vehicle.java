@@ -28,10 +28,16 @@ public class Vehicle implements Serializable {
 
     }
 
-    public Vehicle(int manufacturer, String mark, Owner owner) {
+    public Vehicle(int manufacturer, String mark, Owner owner, ParkingLot parkingLot) {
         this.manufacturer = Manufacturer.valueOf(manufacturer);
         this.mark = mark;
         this.owner = owner;
+        this.parkingLot = parkingLot;
+    }
+
+    public Vehicle(int manufacturer, String mark) {
+        this.manufacturer = Manufacturer.valueOf(manufacturer);
+        this.mark = mark;
     }
 
     public Long getId() {
