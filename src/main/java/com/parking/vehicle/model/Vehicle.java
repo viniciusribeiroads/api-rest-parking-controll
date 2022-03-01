@@ -8,6 +8,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "tb_vehicle")
 public class Vehicle implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,8 +18,10 @@ public class Vehicle implements Serializable {
     @NotNull
     private String mark;
     @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Owner owner;
     @ManyToOne
+    @JoinColumn(name = "parking_id")
     private ParkingLot parkingLot;
 
 

@@ -1,7 +1,10 @@
 package com.parking.vehicle.model;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,7 +15,9 @@ public class ParkingLot implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String name;
+    @OneToMany(mappedBy = "parkingLot")
     private List<Vehicle> vehicles;
 
     public ParkingLot() {

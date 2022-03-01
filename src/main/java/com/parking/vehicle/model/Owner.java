@@ -1,10 +1,12 @@
 package com.parking.vehicle.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,8 +17,11 @@ public class Owner implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String name;
+    @NotNull
     private String cpf;
+    @OneToMany(mappedBy = "owner")
     private List<Vehicle> vehicles;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
