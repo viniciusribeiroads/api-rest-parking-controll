@@ -81,4 +81,5 @@ public class Owner implements Serializable {
     public int hashCode() {
         return Objects.hash(id, name, cpf, vehicles, birthDate);
     }
+
 }
