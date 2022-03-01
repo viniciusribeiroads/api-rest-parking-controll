@@ -19,7 +19,7 @@ public class ParkingLot implements Serializable {
     @NotNull
     private String name;
 
-    @OneToMany(mappedBy = "parkinglot")
+    @OneToMany(mappedBy = "parkingLot")
     private List<Vehicle> vehicles;
 
     public ParkingLot() {

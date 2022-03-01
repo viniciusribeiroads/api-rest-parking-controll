@@ -17,8 +17,10 @@ public class Vehicle implements Serializable {
     @NotNull
     private String mark;
     @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Owner owner;
     @ManyToOne
+    @JoinColumn(name = "parking_lot_id")
     private ParkingLot parkingLot;
 
 
