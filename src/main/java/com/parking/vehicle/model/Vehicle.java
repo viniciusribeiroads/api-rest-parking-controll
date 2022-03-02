@@ -1,5 +1,6 @@
 package com.parking.vehicle.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -35,6 +36,8 @@ public class Vehicle implements Serializable {
         this.parkingLot = parkingLot;
     }
 
+
+
     public Vehicle(int manufacturer, String mark) {
         this.manufacturer = Manufacturer.valueOf(manufacturer);
         this.mark = mark;
@@ -64,6 +67,7 @@ public class Vehicle implements Serializable {
         this.mark = mark;
     }
 
+    @JsonIgnore
     public Owner getOwner() {
         return owner;
     }
@@ -72,6 +76,7 @@ public class Vehicle implements Serializable {
         this.owner = owner;
     }
 
+    @JsonIgnore
     public ParkingLot getParkingLot() {
         return parkingLot;
     }

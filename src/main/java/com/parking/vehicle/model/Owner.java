@@ -1,6 +1,7 @@
 package com.parking.vehicle.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -56,6 +57,7 @@ public class Owner implements Serializable {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
 
     public List<Vehicle> getVehicles() {
         return vehicles;

@@ -16,27 +16,22 @@ public class OwnerController {
     private OwnerService ownerService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Owner>> listAll() {
-        ownerService.listAll();
+    public List<Owner> listAll() {
+        return ownerService.listAll();
 
-        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/new")
     public ResponseEntity<Owner> save(@RequestBody Owner owner) {
-        ownerService.save(owner);
-
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(ownerService.save(owner));
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Owner> update(@RequestBody Owner owner, @PathVariable Long id) {
-        ownerService.update(owner, id);
-
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(ownerService.update(owner, id));
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Owner> delete(@PathVariable Long id) {
         ownerService.delete(id);
 
